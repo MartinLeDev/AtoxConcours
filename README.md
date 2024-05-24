@@ -1,4 +1,4 @@
-# AtoxConcours
+# AtoxCouscous
 
 - Mettre la souris sur entrée un code + cliquer.
 - Mettre la souris sur les coordonées de la saise de code. 
