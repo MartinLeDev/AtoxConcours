@@ -9,7 +9,7 @@ numbers = ["0","1","2","3","4","5","6","7","8","9"]
 keyboard = KeyboardController()
 mouse = MouseController()
 
-write = open('code.txt',"a+")
+writeFile = open('code.txt', "a+")
 
 Run = True
 def Launch():
@@ -30,7 +30,7 @@ def Launch():
     mouse.release(Button.left)
 
     # Enter the code
-    write.write("/n")
+    writeFile.write("/n")
     for y in range(5):
         time.sleep(0.1)
         for i in range(4):
@@ -41,8 +41,8 @@ def Launch():
                 randomChar = numbers[randint(0, len(numbers) - 1)]
             keyboard.press(randomChar)
             keyboard.release(randomChar)
-            write.write(randomChar)
-        write.write("-")
+            writeFile.write(randomChar)
+        writeFile.write("-")
 
     # Valider le code
     mouse.position = (1064, 716)
@@ -59,14 +59,21 @@ def Launch():
         keyboard.release(Key.f5)
 
 def on_press(key):
+
     if key == Key.f6:
         Run = False
     if key == Key.f5:
         Run = True
         Launch()
 
-
+def inverse(bool):
+    if bool == True:
+        return False
+    else:
+        return True
 def main():
+    if inverse(Run):
+        exit()
     with Listener(on_press=on_press) as listener:
         listener.join()
 
